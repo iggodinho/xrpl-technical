@@ -1,0 +1,12 @@
+services:
+  nuxt-app:
+    build: .
+    ports:
+      - "4938:4938"
+    volumes:
+      - .:/app
+      - /app/node_modules 
+    environment:
+      - PORT=4938
+      - NITRO_PORT=4938
+      - NITRO_HOST=0.0.0.0
