@@ -119,7 +119,7 @@ const createNFT = async () => {
     })
 
     if (!uploadData.success) throw new Error('Upload failed')
-    pinataUrl.value = uploadData.pinataLink || uploadData.httpUrl 
+    pinataUrl.value = uploadData.url
 
     statusMessage.value = 'Preparing Xaman...'
     const mintData = await $fetch('/api/mint-xumm', {

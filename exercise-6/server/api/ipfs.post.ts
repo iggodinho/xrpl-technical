@@ -22,8 +22,7 @@ export default defineEventHandler(async (event) => {
     return {
       success: true,
       ipfsHash: response.IpfsHash,
-      url: `ipfs://${response.IpfsHash}`,
-      pinataLink: `https://copper-characteristic-python-349.mypinata.cloud/ipfs/${response.IpfsHash}`
+      url: `https://copper-characteristic-python-349.mypinata.cloud/ipfs/${response.IpfsHash}`
     }
   } catch (error) {
     console.error('IPFS Error:', error)
