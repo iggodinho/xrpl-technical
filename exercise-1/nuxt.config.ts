@@ -10,6 +10,6 @@ export default defineNuxtConfig({
       ],
     },
   runtimeConfig: {
-    secret:'sEdVPLEYZ99n5jDpxjVcGRdV4fjp7iZ' 
+    secret: process.env.WALLET_SECRET
   }
 })

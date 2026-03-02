@@ -9,7 +9,7 @@ export default defineNuxtConfig({
         tailwindcss(),
       ]},
   runtimeConfig: {
-    xummApiKey: '23c237e2-a1c4-4684-aadd-6dd66f7bdd46',
-    xummApiSecret: '149c7642-21a4-424b-b1e1-b449618e8272',
+    xummApiKey: process.env.XUMM_KEY,
+    xummApiSecret: process.env.XUMM_SECRET,
     }
 })
