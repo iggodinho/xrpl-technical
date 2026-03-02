@@ -57,6 +57,7 @@ app/pages/create.vue
 </template>
 
 <script setup lang="ts">
+import type { Clock } from '~/composables/clocks'
 const { clocks, selectedClock, selectClock } = useClock()
 const selectedId = ref(selectedClock.value?.id || '')
 const isLoading = ref(false)
@@ -64,8 +65,10 @@ const showModal = ref(false)
 const explorerLink = ref('')
 
 const handleSelect = () => {
-  const selected = clocks.value.find(c => c.id === selectedId.value) //pega o clock na minha lista de clocks usando o id selecionado
-  selectClock(selected)
+  const selected: Clock | undefined = clocks.value.find(c => c.id === selectedId.value) //pega o clock na minha lista de clocks usando o id selecionado
+  if (selected) {
+    selectClock(selected)
+  }
 }
 
 const createNFT = async () => {

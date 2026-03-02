@@ -28,7 +28,6 @@ export const useClock = () => {
     selectedClock.value = clock;
   };
 
-  console.log(selectedClock.value)
 
   return {
     clocks,
