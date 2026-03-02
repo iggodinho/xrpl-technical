@@ -1,7 +1,7 @@
+//server/api/mint.post.ts
 import xrpl from 'xrpl';
 //https://xrpl.org/docs/tutorials/javascript/nfts/mint-and-burn-nfts#mint-nftsjs, https://xrpl.org/resources/dev-tools/xrp-faucets
 
-//const secret='sEdVb4EYQbqrUrRgzLNqqK3r8JH58EJ' lembrar de trocar
 const testnet= 'wss://s.altnet.rippletest.net:51233'
 
 export default defineEventHandler(async (event) => {

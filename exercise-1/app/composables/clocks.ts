@@ -1,3 +1,10 @@
+//app/composables/clocks.ts
+
+export interface Clock {
+  id: number;
+  name: string;
+  imageUrl: string;
+}
 
 export const useClock = () => {
   const clocks = useState('clocks-list', () => [
@@ -15,11 +22,13 @@ export const useClock = () => {
     { id: 12, name: 'Precision', imageUrl: 'https://d2pn8kiwq2w21t.cloudfront.net/images/Precision.width-1024.jpg' },
   ])
 
-  const selectedClock = useState('selected-clock', () => null as any);
+  const selectedClock = useState<Clock | null>('selected-clock', () => null as any);
 
-  const selectClock = (clock: number) => {
+  const selectClock = (clock: Clock) => {
     selectedClock.value = clock;
   };
+
+  console.log(selectedClock.value)
 
   return {
     clocks,

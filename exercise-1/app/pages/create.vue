@@ -1,3 +1,4 @@
+app/pages/create.vue
 <template>
   <div class="min-h-screen p-8 bg-gray-50 flex flex-col items-center">
     <h1 class="text-3xl font-bold text-blue-900 mb-8">Create Clock NFT</h1>
@@ -11,7 +12,7 @@
         @change="handleSelect"
         class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
       >
-        <option value="" disabled selected>Choose a clock...</option>
+        <option value="" disabled selected>Choose a clock...</option> <!--padrao deixar o valor inicial vazio e como disabled-->
         <option v-for="clock in clocks" :key="clock.id" :value="clock.id">
           {{ clock.name }}
         </option>
@@ -57,20 +58,19 @@
 
 <script setup lang="ts">
 const { clocks, selectedClock, selectClock } = useClock()
-
 const selectedId = ref(selectedClock.value?.id || '')
 const isLoading = ref(false)
 const showModal = ref(false)
 const explorerLink = ref('')
 
 const handleSelect = () => {
-  const selected = clocks.value.find(c => c.id === selectedId.value)
+  const selected = clocks.value.find(c => c.id === selectedId.value) //pega o clock na minha lista de clocks usando o id selecionado
   selectClock(selected)
 }
 
 const createNFT = async () => {
-  if (!selectedClock.value) 
-    return isLoading.value = true;
+  if (!selectedClock.value) return;
+  isLoading.value = true;
   try {
     const result = await mintNft(selectedClock.value.imageUrl);
     if (result.success) {

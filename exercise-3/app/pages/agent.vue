@@ -37,7 +37,7 @@ const score = ref(null)
 const submitIdea = async () => {
   if (!idea.value) return
   isLoading.value = true
-  score.value = null
+  score.value = null //reseta o score
   try {
     const data = await $fetch('/api/openai', {
       method: 'POST',

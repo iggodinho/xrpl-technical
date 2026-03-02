@@ -1,3 +1,4 @@
+//app/composables/nft.ts
 export const mintNft = async (imageUrl: string) => {
   try {
     const response = await $fetch('/api/mint', {

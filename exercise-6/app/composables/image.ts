@@ -21,7 +21,7 @@ export const useImageEditor = () => {
     canvasRef.value.width = img.naturalWidth
     canvasRef.value.height = img.naturalHeight
     ctx.filter = `brightness(${brightness.value}%) hue-rotate(${hue.value}deg)`
-    ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+    ctx.drawImage(img, 0, 0, canvasRef.value.width, canvasRef.value.height)
   }
 
   const getCanvasBlob = (): Promise<Blob> => {
@@ -45,3 +45,16 @@ export const useImageEditor = () => {
     getCanvasBlob
   }
 }
+
+
+
+/*
+uso a tag img pra visualização rapida das mudanças, so que o CSS altera apenas como o navegador 
+mostra a imagem, não altera o arquivo original. aplica uma "máscara" visual sobre a imagem original 
+em tempo real.
+Pra isso uso a tag canva, no background ela copia o filtro que to colocando na imagem, 
+criando a nossa imagem que vai ser transformada em blob pra ser enviada pro ipfs, que espera um 
+binary stream. Consome mais processamento por isso faço de forma oculta pra nao afetar ux-ui
+
+
+*/

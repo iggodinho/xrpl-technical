@@ -101,7 +101,7 @@ const openModal = (title: string, uuid: string, url: string) => {
 }
 
 const checkStatus = async () => {
-  if (!activeUuid.value) return
+  
   try {
     const status = await $fetch(`/api/check?uuid=${activeUuid.value}`)
     
@@ -112,7 +112,7 @@ const checkStatus = async () => {
       if (status.signed) {
         console.log('signed')
         if (!account.value && status.account) {
-          account.value = status.account
+          account.if (!activeUuid.value) returnvalue = status.account
         }
         if (status.txHash && isPayment.value) { 
           txHash.value = status.txHash
